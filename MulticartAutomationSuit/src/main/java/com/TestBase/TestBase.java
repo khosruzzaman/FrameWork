@@ -13,11 +13,12 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import com.utill.Utility;
 
+import jdk.jfr.Timespan;
+
 public class TestBase {
 	public static WebDriver driver;
 	public static Properties prop;
-	public static String conProp = "C:\\Users\\khosr\\eclipse-workspace\\MulticartAutomationSuit\\src\\main\\java\\com"
-			+ "\\configurations\\config.properties";
+	public static String conProp = "C:\\Users\\khosr\\git\\FrameWork\\MulticartAutomationSuit\\src\\main\\java\\com\\configurations\\config.properties";
 	
 	// Call to constractor
 	public TestBase() {
@@ -35,7 +36,7 @@ public class TestBase {
 	
 	public static void initialization() {
 		String browserName = prop.getProperty("browser");
-		if(browserName.equals("chrom")) {
+		if(browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver","C:\\Users\\khosr\\Driver\\chromedriver.exe");	
 			driver = new ChromeDriver();
 		} else if(browserName.equals("firefox")) {
@@ -48,16 +49,10 @@ public class TestBase {
 		driver.manage().deleteAllCookies();
 		driver.navigate().refresh();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(Utility.PAGE_LOAD_TIME_OUT, TimeUnit.SECONDS);
+		//driver.manage().timeouts().pageLoadTimeout(Utility.PAGE_LOAD_TIME_OUT,);
 		driver.manage().timeouts().implicitlyWait(Utility.IMPLECITELY_WAIT_TIME, TimeUnit.SECONDS);
-		driver.get(prop.getProperty("url"));
-		
-		
-		
+		driver.manage().timeouts().pageLoadTimeout(Utility.PAGE_LOAD_TIME_OUT, TimeUnit.SECONDS);
+		driver.get(prop.getProperty("url"));	
 	}
-	
-	
-	
-	
-	
+
 }
