@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\khosr\AppData\Local\Temp\testng-eclipse--915783132\testng-customsuite.xml</span>
+                    <span>C:\Users\khosr\AppData\Local\Temp\testng-eclipse--1443708972\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.tests.HomePageTest" class="method navigator-link" hash-for-method="HomePageTitle">HomePageTitle</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.tests.HomePageTest" class="method navigator-link" hash-for-method="verifyCurrencyListTest">verifyCurrencyListTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -127,9 +127,9 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="HomePageTitle">
-                  </a> <!-- HomePageTitle -->
-                  <span class="method-name">HomePageTitle</span>
+                  <a name="verifyCurrencyListTest">
+                  </a> <!-- verifyCurrencyListTest -->
+                  <span class="method-name">verifyCurrencyListTest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -137,7 +137,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\khosr\AppData\Local\Temp\testng-eclipse--915783132\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\khosr\AppData\Local\Temp\testng-eclipse--1443708972\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -146,7 +146,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.tests.HomePageTest&quot;/&gt;
+      &lt;class name=&quot;com.tests.HomePageTest&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;verifyCurrencyListTest&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.tests.HomePageTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -188,14 +192,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'HomePageTitle')
+data.setCell(0, 1, 'verifyCurrencyListTest')
 data.setCell(0, 2, 'com.tests.HomePageTest')
-data.setCell(0, 3, 11);
+data.setCell(0, 3, 185);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 11 ms</span>
+              <span class="suite-total-time">Total running time: 185 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -210,9 +214,20 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">3 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.tests.HomePageTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">validateLoginSourceButtonTest</span>
+                <br/>
+                <span class="ignored-method-name">validateAboutUsLinkTest</span>
+                <br/>
+                <span class="ignored-method-name">HomePageTitle</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -227,12 +242,12 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">HomePageTitle</span>
-                <span class="method-start">3111 ms</span>
+                <span class="method-name">verifyCurrencyListTest</span>
+                <span class="method-start">2895 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">3124 ms</span>
+                <span class="method-start">3083 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -1,13 +1,19 @@
 package com.pages;
 
+import java.util.Iterator;
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import com.TestBase.TestBase;
+import com.utill.Utility;
 
 public class HomePage extends TestBase{
-	
+	Utility utility;
 	// PAGE FACTORY -  OBJECT'S REPOSITORY
 	@FindBy(xpath = "//button[@id='dLabellogin']")
 	WebElement login_source_button;
@@ -27,10 +33,12 @@ public class HomePage extends TestBase{
 	//Page Factory initialization 
 	public HomePage() {
 		PageFactory.initElements(driver, this);
+		utility= new Utility();
 	}
 	
 	public String validatePageTitle() {
 		String title = driver.getTitle();
+		System.out.println("The title of this page is : "+title);
 		return title;
 	}
 
@@ -38,4 +46,43 @@ public class HomePage extends TestBase{
 		System.out.println("Name of this Button is : "+login_source_button.getText());
 		return login_source_button.isDisplayed();
 	}
-}
+	
+	public boolean validateAboutUsLink() {
+		System.out.println("Name of this object is : "+about_Us.getText());
+		boolean validateAboutUs = about_Us.isDisplayed();
+		return validateAboutUs; 
+	}
+	
+	public String verifyCurrencyList(String actualValue[]) {
+		String[] expected = {  "AUD", "BRL", "GBP", "CAD", "EUR", "XO", "INR", "JPY", "MYR", "RUB", "ZAR", "USD" };
+		WebElement select = currency_List;
+
+		List<WebElement> allOptions = select.findElements(By.xpath("option"));
+
+		// make sure you found the right number of elements
+		if (expected.length != allOptions.size()) {
+			System.out.println("fail, wrong number of elements found");
+		}
+		// make sure that the value of every <option> element equals the expected value
+		for (int i = 0; i < expected.length; i++) {
+			String optionValue = allOptions.get(i).getAttribute("value");
+			if (optionValue.equals(expected[i])) {
+				System.out.println("passed on: " + optionValue);
+			} else {
+				System.out.println("failed on: " + optionValue);
+			}
+		}
+return allOptions.toString();
+	}
+	}
+
+
+
+
+
+
+
+
+
+
+

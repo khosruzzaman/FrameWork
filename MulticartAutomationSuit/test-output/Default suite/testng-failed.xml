@@ -6,8 +6,8 @@
       <class name="com.tests.HomePageTest">
         <methods>
           <include name="tearDown"/>
+          <include name="verifyCurrencyListTest"/>
           <include name="setUp"/>
-          <include name="HomePageTitle"/>
         </methods>
       </class> <!-- com.tests.HomePageTest -->
     </classes>
