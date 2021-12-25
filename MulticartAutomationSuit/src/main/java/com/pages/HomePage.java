@@ -12,49 +12,52 @@ import org.openqa.selenium.support.ui.Select;
 import com.TestBase.TestBase;
 import com.utill.Utility;
 
-public class HomePage extends TestBase{
+public class HomePage extends TestBase {
 	Utility utility;
-	// PAGE FACTORY -  OBJECT'S REPOSITORY
+	// PAGE FACTORY - OBJECT'S REPOSITORY
 	@FindBy(xpath = "//button[@id='dLabellogin']")
 	WebElement login_source_button;
-	
+
 	@FindBy(linkText = "About Us")
 	WebElement about_Us;
-	
+
 	@FindBy(linkText = "Contact Us")
 	WebElement contact_Us;
-	
+
 	@FindBy(linkText = "View Cart")
 	WebElement verw_Cart;
-	
+
 	@FindBy(xpath = "//select[@name='currency_type']")
 	WebElement currency_List;
-	
-	//Page Factory initialization 
+
+	// Page Factory initialization
 	public HomePage() {
 		PageFactory.initElements(driver, this);
-		utility= new Utility();
+		utility = new Utility();
 	}
-	
+
 	public String validatePageTitle() {
 		String title = driver.getTitle();
-		System.out.println("The title of this page is : "+title);
+		System.out.println("The title of this page is : " + title);
 		return title;
 	}
 
 	public boolean validateLoginSourceButton() {
-		System.out.println("Name of this Button is : "+login_source_button.getText());
+		System.out.println("Name of this Button is : " + login_source_button.getText());
 		return login_source_button.isDisplayed();
 	}
-	
+
 	public boolean validateAboutUsLink() {
-		System.out.println("Name of this object is : "+about_Us.getText());
+		System.out.println("Name of this object is : " + about_Us.getText());
 		boolean validateAboutUs = about_Us.isDisplayed();
-		return validateAboutUs; 
+		return validateAboutUs;
 	}
-	
+
 	public String verifyCurrencyList(String actualValue[]) {
-		String[] expected = {  "AUD", "BRL", "GBP", "CAD", "EUR", "XO", "INR", "JPY", "MYR", "RUB", "ZAR", "USD" };
+		String[] expected = { "AUD", "BRL", "GBP", "CAD", "EUR", "XO", "INR", "JPY", "MYR", "RUB", "ZAR", "USD" };
+		for(int k =0; k<=expected.length; k++) {
+			System.out.println("Expected Value is :"+expected);
+		
 		WebElement select = currency_List;
 
 		List<WebElement> allOptions = select.findElements(By.xpath("option"));
@@ -66,23 +69,15 @@ public class HomePage extends TestBase{
 		// make sure that the value of every <option> element equals the expected value
 		for (int i = 0; i < expected.length; i++) {
 			String optionValue = allOptions.get(i).getAttribute("value");
+
 			if (optionValue.equals(expected[i])) {
-				System.out.println("passed on: " + optionValue);
+				System.out.println("Expected Value of " + expected[k++] + " is Match With Actual Value of : " + optionValue);
 			} else {
-				System.out.println("failed on: " + optionValue);
+				System.err.println("Expected Value of " + expected[k++] + " Doesn't Match With Actual Value of : " + optionValue);
 			}
 		}
-return allOptions.toString();
+		return allOptions.toString();
 	}
-	}
-
-
-
-
-
-
-
-
-
-
-
+		return expected.toString();
+}
+}
