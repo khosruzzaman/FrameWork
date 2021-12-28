@@ -43,9 +43,9 @@ public class HomePageTest extends TestBase {
 	@Test(priority = 4)
 	public void verifyCurrencyListTest() {
 
-		String[] actualValue = { "AUD", "BRL", "GBP", "CAD", "EUR", "XOF", "INR", "JPY", "MYR", "RUB", "ZAR", "USD" };
-		String currencyLists = homePage.verifyCurrencyList(actualValue);
-		System.out.println("Assertion is passed!!");
+		//String[] actualValue = { "AUD", "BRL", "GBP", "CAD", "EUR", "XOF", "INR", "JPY", "MYR", "RUB", "ZAR", "USD" };
+		String currencyLists = homePage.verifyCurrencyList();
+		//System.out.println("Assertion is passed!!");
 
 	}
 

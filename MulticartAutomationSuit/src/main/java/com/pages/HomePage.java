@@ -15,7 +15,7 @@ import com.utill.Utility;
 public class HomePage extends TestBase {
 	Utility utility;
 	// PAGE FACTORY - OBJECT'S REPOSITORY
-	@FindBy(xpath = "//button[@id='dLabellogin']")
+	@FindBy(xpath = "//button[@id='dLabellogin']") 
 	WebElement login_source_button;
 
 	@FindBy(linkText = "About Us")
@@ -53,21 +53,27 @@ public class HomePage extends TestBase {
 		return validateAboutUs;
 	}
 
-	public String verifyCurrencyList(String actualValue[]) {
-		String[] expected = { "AUD", "BRL", "GBP", "CAD", "EUR", "XO", "INR", "JPY", "MYR", "RUB", "ZAR", "USD" };
-		for(int k =0; k<=expected.length; k++) {
+	public String verifyCurrencyList() {
+	
+		String[] expected = { "AUD", "BRL", "GBP", "CAD", "EUR", "XOF", "INR", "JPY", "MYR", "RUB", "ZAR", "USD" };
+		
+		
+		for(int k =0; k<expected.length; k++) {
 			System.out.println("Expected Value is :"+expected);
 		
 		WebElement select = currency_List;
-
+		
 		List<WebElement> allOptions = select.findElements(By.xpath("option"));
 
 		// make sure you found the right number of elements
 		if (expected.length != allOptions.size()) {
 			System.out.println("fail, wrong number of elements found");
+			break;
 		}
+		
+		// INR == Indian Rupee
 		// make sure that the value of every <option> element equals the expected value
-		for (int i = 0; i < expected.length; i++) {
+		for (int i = 0; i <expected.length; i++) {
 			String optionValue = allOptions.get(i).getAttribute("value");
 
 			if (optionValue.equals(expected[i])) {

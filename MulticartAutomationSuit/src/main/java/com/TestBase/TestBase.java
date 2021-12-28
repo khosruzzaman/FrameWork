@@ -12,9 +12,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import com.utill.Utility;
-
-import jdk.jfr.Timespan;
-
 public class TestBase {
 	public static WebDriver driver;
 	public static Properties prop;
@@ -50,8 +47,8 @@ public class TestBase {
 		driver.navigate().refresh();
 		driver.manage().window().maximize();
 		//driver.manage().timeouts().pageLoadTimeout(Utility.PAGE_LOAD_TIME_OUT,);
-		driver.manage().timeouts().implicitlyWait(Utility.IMPLECITELY_WAIT_TIME, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(Utility.PAGE_LOAD_TIME_OUT, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//driver.manage().timeouts().pageLoadTimeout(Utility.PAGE_LOAD_TIME_OUT, TimeUnit.SECONDS);
 		driver.get(prop.getProperty("url"));	
 	}
 
